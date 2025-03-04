@@ -1,8 +1,78 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Sweatybeaty</title>
-    </head>
-    <Body>
-    </Body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweatyBetty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: white;
+        }
+
+        .navbar, .icons {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li, .icons li {
+            margin-right: 20px;
+        }
+
+        .navbar a, .icons a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icons a {
+            margin-left: 20px;
+        }
+
+        .icons i {
+            margin-right: 5px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .logo:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </nav>
+        <div class="logo">SweatyBetty</div>
+        <ul class="icons">
+            <li><a href="#" aria-label="Login"><i class="fas fa-user"></i></a></li>
+            <li><a href="#" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </header>
+
+
+</body>
 </html>
