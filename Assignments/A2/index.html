@@ -7,72 +7,284 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <style>
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background-color: white;
+
+    #header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navbar, .icons {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li, .icons li {
+        margin-right: 20px;
+    }
+
+    .navbar a, .icons a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .navbar a:hover, .icons a:hover {
+        color: #ff5733;
+    }
+
+    .icons a {
+        margin-left: 20px;
+    }
+
+    .icons i {
+        margin-right: 5px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        flex-grow: 1;
+        text-align: center;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+        #header {
+            flex-direction: column;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .navbar {
+            flex-direction: column;
+            padding-top: 10px;
         }
 
-        .navbar, .icons {
+        .navbar li {
+            margin: 10px 0;
+        }
+
+        .icons {
+            margin-top: 10px;
+        }
+    }
+
+        #hero {
             display: flex;
-            list-style-type: none;
+            align-items: center;
+            justify-content: space-between;
+            background: #d5f08c;
+            padding: 60px 40px;
+        }
+
+
+        #hero-text {
+            width: 50%;
+            padding: 20px;
+        }
+        #hero-text h1 {
+            font-size: 60px;
+            font-weight: bold;
+            color: #656565;
+            margin: 0;
+        }
+        #hero-text h2 {
+            font-size: 50px;
+            font-weight: bold;
+            color: #656565;
+            margin: 10px 0;
+        }
+        #hero-text h4 {
+            font-size: 20px;
+            color: #201f1f;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        #hero-buttons {
+            margin-top: 20px;
+        }
+        .hero-btn {
+            text-decoration: none;
+            font-size: 16px;
+            color: black;
+            border-bottom: 2px solid black;
+            margin-right: 20px;
+        }
+        #hero-image {
+            width: 75%;
+            padding: 10px;
+        }
+        #hero-image img {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
             margin: 0;
             padding: 0;
         }
 
-        .navbar li, .icons li {
-            margin-right: 20px;
-        }
-
-        .navbar a, .icons a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        .icons a {
-            margin-left: 20px;
-        }
-
-        .icons i {
-            margin-right: 5px;
-        }
-
-        .logo {
+        #h-category {
             font-size: 24px;
-            font-weight: bold;
-            flex-grow: 1;
-            text-align: center;
-            color: black;
-            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-        .logo:hover {
-            text-decoration: none;
-        }
+    #category {
+    margin: 0 auto; 
+    border-collapse: collapse;
+    }
+
+    #category td {
+        padding: 10px; 
+        text-align: center;
+    }
+
+    #category img {
+        width: 200px; 
+        height: 250px;
+        border-radius: 5px;
+        object-fit: cover; 
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #category img:hover {
+        transform: scale(1.05);
+    }
+
+    #category a {
+        display: block;
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: background 0.3s ease-in-out;
+    }
+
+    #category a:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+    }
+
+    #shop-tops {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    #short-top-text {
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    #shop-tops-image {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    #shop-tops-image img {
+        width: 50%;
+        height: 50%;
+    }
+
+    #shop-tops a {
+        text-decoration: none;
+        font-size: 16px;
+        color: black;
+        border-bottom: 2px solid black;
+        margin-right: 20px;
+    }
+
+
     </style>
 </head>
 <body>
-    <header>
+
+    <header id="header">
         <nav>
             <ul class="navbar">
                 <li><a href="#">New Arrivals</a></li>
                 <li><a href="#">Clothing</a></li>
                 <li><a href="#">Accessories</a></li>
                 <li><a href="#">Sale</a></li>
+                <li><a href="#">Last Chance to Buy</a></li>
             </ul>
         </nav>
+        
         <div class="logo">SweatyBetty</div>
+    
         <ul class="icons">
-            <li><a href="#" aria-label="Login"><i class="fas fa-user"></i></a></li>
-            <li><a href="#" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#" aria-label="Login"><i class="fas fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Cart"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Contact"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
         </ul>
     </header>
+    
 
+    <div id="hero">
+        <div id="hero-text">
+            <h1>RUN</h1>
+            <h2>TO WIN.</h2>
+            <h3>Or to get some quality time in.</h3>
+            <h4>On your own, or with friends. Steps count with every route. Find your pace with a collection of award-winning run styles made with lightweight, technical, dry-feel fabrics.</h4>
+            <div id="hero-buttons">
+                <a href="#" class="hero-btn">SHOP NEW ARRIVALS</a>
+                <a href="#" class="hero-btn">SHOP RUN</a>
+            </div>
+        </div>
+        <div id="hero-image">
+            <img src="./images/hero.jpg" alt="Women running">
+        </div>
+    </div>
+
+    <div> 
+        <h3 id="h-category">Shop by Category</h3>
+        <table id="category">
+            <tr>
+                <td><img src="./images/run.jpg" alt="run"></td>
+                <td><img src="./images/gym.jpg" alt="gym"></td>
+                <td><img src="./images/yoga.jpg" alt="yoga"></td>
+                <td><img src="./images/casual.jpg" alt="casual"></td>
+            </tr>
+            <tr>
+                <td><a href="#">Run</a></td>
+                <td><a href="#">Gym</a></td>
+                <td><a href="#">Yoga+Pilates</a></td>
+                <td><a href="#">Casual</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="shop-tops-image">
+        <img src="./images/tops.jpg" alt="">
+    </div>
+
+    <div id="shop-tops">
+        <div id="short-top-text">
+            <h3>HERE FOR THE LONG RUN.</h3>
+            <h3>And the short ones.</h3>
+            <p>However far you're moving, boost your route with breathable, 
+                sweat-wicking tops that deliver on performance and comfort.</p>
+            <a href="#">SHOP TOPS</a>
+        </div>
+    </div>
 
 </body>
 </html>
