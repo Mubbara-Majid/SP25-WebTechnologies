@@ -83,66 +83,82 @@
         }
     }
 
-        #hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #d5f08c;
-            padding: 60px 40px;
-        }
+    #hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #d5f08c;
+    padding: 60px 40px;
+}
 
+    #hero-text {
+        width: 45%;
+        padding: 20px;
+        text-align: left;
+    }
 
-        #hero-text {
-            width: 50%;
-            padding: 20px;
-        }
-        #hero-text h1 {
-            font-size: 60px;
-            font-weight: bold;
-            color: #656565;
-            margin: 0;
-        }
-        #hero-text h2 {
-            font-size: 50px;
-            font-weight: bold;
-            color: #656565;
-            margin: 10px 0;
-        }
-        #hero-text h4 {
-            font-size: 20px;
-            color: #201f1f;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-        #hero-buttons {
-            margin-top: 20px;
-        }
-        .hero-btn {
-            text-decoration: none;
-            font-size: 16px;
-            color: black;
-            border-bottom: 2px solid black;
-            margin-right: 20px;
-        }
-        #hero-image {
-            width: 75%;
-            padding: 10px;
-        }
-        #hero-image img {
-            width: 100%;
-            height: 100%;
-        }
-        body {
+    #hero-text h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: #656565;
+        margin: 0;
+    }
+
+    #hero-text h2 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #656565;
+        margin: 10px 0;
+    }
+
+    #hero-text h3 {
+        font-size: 32px;
+        font-weight: normal;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    #hero-text h4 {
+        font-size: 20px;
+        color: #201f1f;
+        font-weight: 500;
+        margin: 10px 0;
+    }
+
+    #hero-buttons {
+        margin-top: 20px;
+    }
+
+    .hero-btn {
+        text-decoration: none;
+        font-size: 16px;
+        color: black;
+        border-bottom: 2px solid black;
+        margin-right: 20px;
+    }
+
+    #hero-image {
+        width: 50%;
+        padding: 10px;
+    }
+
+    #hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
-        }
+    }
 
-        #h-category {
+    #h-category {
             font-size: 24px;
             margin-bottom: 20px;
-        }
+    }
 
     #category {
     margin: 0 auto; 
@@ -151,7 +167,7 @@
 
     #category td {
         padding: 10px; 
-        text-align: center;
+        text-align:center
     }
 
     #category img {
@@ -184,24 +200,44 @@
     }
 
     #shop-tops {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-    }
-
-    #short-top-text {
-        align-items: flex-start;
-        padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px;
+    background: #fffcfc;
+    gap: 20px;
     }
 
     #shop-tops-image {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        flex: 2;
+        padding: 20px;
     }
+
     #shop-tops-image img {
-        width: 50%;
-        height: 50%;
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    #short-top-text {
+        flex: 1;
+        padding: 0px;
+    }
+
+    #short-top-text h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0b0a0a;
+            margin: 5px 0;
+            text-align: left;
+    }
+
+    #short-top-text p {
+        font-size: 16px;
+        color: #030303;
+        margin: 10px 0;
+        text-align: left;
     }
 
     #shop-tops a {
@@ -209,12 +245,127 @@
         font-size: 16px;
         color: black;
         border-bottom: 2px solid black;
-        margin-right: 20px;
+        margin-top: 10px;
+        display: inline-block;
     }
 
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
 
-    </style>
+.footer {
+    background-color: #f8f8f8;
+    padding: 30px;
+    text-align: center;
+}
+
+.newsletter h3 {
+    margin: 0;
+}
+
+.newsletter p {
+    color: #555;
+    font-size: 14px;
+}
+
+.newsletter form {
+    margin: 10px 0;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.newsletter button:hover {
+    background: #333;
+}
+
+.privacy-text {
+    font-size: 12px;
+    color: #777;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px 0;
+}
+
+.footer-links .column {
+    text-align: left;
+}
+
+.footer-links h4 {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-links a:hover {
+    color: black;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.payment-icons img {
+    width: 40px;
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .payment-icons {
+        margin-top: 10px;
+    }
+}
+
+
+</style>
+
 </head>
+
 <body>
 
     <header id="header">
@@ -253,9 +404,9 @@
             <img src="./images/hero.jpg" alt="Women running">
         </div>
     </div>
-
-    <div> 
-        <h3 id="h-category">Shop by Category</h3>
+    
+    
+    <h3 id="h-category">Shop by Category</h3>
         <table id="category">
             <tr>
                 <td><img src="./images/run.jpg" alt="run"></td>
@@ -272,11 +423,11 @@
         </table>
     </div>
 
-    <div id="shop-tops-image">
-        <img src="./images/tops.jpg" alt="">
-    </div>
-
     <div id="shop-tops">
+        <div id="shop-tops-image">
+            <img src="./images/tops.jpg" alt="Sportswear Tops">
+        </div>
+        
         <div id="short-top-text">
             <h3>HERE FOR THE LONG RUN.</h3>
             <h3>And the short ones.</h3>
@@ -286,5 +437,57 @@
         </div>
     </div>
 
+
+    <footer class="footer">
+        <div class="newsletter">
+            <h3>📩 WANT 15% OFF?</h3>
+            <p>Sign up to our newsletter to get 15% off your first order. *Full priced items only.</p>
+            <form>
+                <input type="email" placeholder="Email Address*" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p class="privacy-text">
+                This site is protected by reCAPTCHA and the Google 
+                <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <div class="column">
+                <h4>HELP</h4>
+                <a href="#">Delivery + Returns</a>
+                <a href="#">Help Center</a>
+                <a href="#">Size Guide</a>
+                <a href="#">Shop Finder</a>
+            </div>
+
+            <div class="column">
+                <h4>CONTACT US</h4>
+                <a href="#">Track My Order</a>
+                <a href="#">Chat with us</a>
+                <a href="#">Wholesale Enquiries</a>
+                <a href="#">Press + Influencers</a>
+                <a href="#">Affiliates</a>
+            </div>
+
+            <div class="column">
+                <h4>COMMUNITY</h4>
+                <a href="#">The Story</a>
+                <a href="#">Responsibility</a>
+                <a href="#">Foundation</a>
+                <a href="#">Careers</a>
+                <a href="#">Student & Graduate Discount</a>
+                <a href="#">Join our Loyalty Program</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="logo">⚫⚫</div>
+            <div class="payment-icons">
+                <img src="./images/visa.jpg" alt="Visa">
+                <img src="./images/mastercard.jpg" alt="MasterCard">
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
