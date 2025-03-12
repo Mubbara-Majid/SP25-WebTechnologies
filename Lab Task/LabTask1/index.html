@@ -6,6 +6,7 @@
     <title>SweatyBetty</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
 
     #header {
@@ -52,6 +53,36 @@
     .icons i {
         margin-right: 5px;
     }
+    .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 200px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu li {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: black;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f8f9fa;
+        }
+
+        .navbar li:hover .dropdown-menu {
+            display: block;
+        }
 
     .logo {
         font-size: 24px;
@@ -372,8 +403,22 @@
         <nav>
             <ul class="navbar">
                 <li><a href="#">New Arrivals</a></li>
-                <li><a href="#">Clothing</a></li>
-                <li><a href="#">Accessories</a></li>
+                <li class="dropdown">
+                    <a href="#">Clothing</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">T-Shirts</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        <li><a href="#">Jackets</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Accessories</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Bags</a></li>
+                        <li><a href="#">Hats</a></li>
+                        <li><a href="#">Sunglasses</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Sale</a></li>
                 <li><a href="#">Last Chance to Buy</a></li>
             </ul>
@@ -489,5 +534,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
