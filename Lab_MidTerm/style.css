@@ -34,7 +34,7 @@
 }
 
 .navbar a:hover, .icons a:hover {
-    color: #ff5733;
+    color: #c53232;
 }
 
 .icons a {
@@ -144,7 +144,7 @@
     color: #333;
     font-size: 18px;
     font-weight: 600;
-    border-bottom: 2px solid #ff5733;
+    border-bottom: 2px solid #070707;
     padding-bottom: 8px;
 }
 
@@ -158,7 +158,7 @@
 .mega-menu-column a {
     display: inline-block;
     padding: 8px 20px;
-    background: #ff5733;
+    background: #030303;
     color: white !important;
     border-radius: 4px;
     text-decoration: none;
@@ -170,7 +170,7 @@
 }
 
 .mega-menu-column a:hover {
-    background: #e04b2b;
+    background: #030303;
     transform: translateY(-2px);
     box-shadow: 0 3px 10px rgba(224, 75, 43, 0.3);
 }
