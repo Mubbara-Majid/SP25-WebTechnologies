@@ -1,0 +1,23 @@
+<head>
+  <!-- Add to the head section -->
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="login-actions">
+      <a href="/register" class="action-link">Create Account</a>
+      <a href="#" class="action-link">Forgot Password?</a>
+    </div>
+  </div>
+</div>
