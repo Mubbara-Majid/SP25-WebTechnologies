@@ -1,0 +1,33 @@
+<h2 style="text-align: center;">➕ Add New Product</h2>
+
+<form action="/admin/products/add" method="POST" style="max-width: 500px; margin: auto;">
+  <div>
+    <label for="name">Product Name:</label><br>
+    <input type="text" name="name" required>
+  </div>
+
+  <div>
+    <label for="price">Price:</label><br>
+    <input type="number" name="price" required>
+  </div>
+
+  <div>
+    <label for="category">Category:</label><br>
+    <input type="text" name="category" placeholder="e.g. Women, Men, Yoga">
+  </div>
+
+  <div>
+    <label for="image">Image URL:</label><br>
+    <input type="text" name="image" placeholder="/images/product1.jpg" required>
+  </div>
+
+  <div>
+    <label for="description">Description:</label><br>
+    <textarea name="description" rows="4" placeholder="Short product description..."></textarea>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button type="submit">✅ Save Product</button>
+    <a href="/admin/products" style="margin-left: 10px;">🔙 Cancel</a>
+  </div>
+</form>

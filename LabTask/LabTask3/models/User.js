@@ -8,11 +8,15 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true // prevent duplicate registrations
+    unique: true
   },
   password: {
     type: String,
     required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   }
 });
 

@@ -65,6 +65,9 @@
     <% if (session && session.user) { %>
       <li><a href="/my-orders">My Orders</a></li>
     <% } %>
+    <% if (session && session.user && session.user.isAdmin) { %>
+        <li><a href="/admin/products">🛠 Admin Panel</a></li>
+    <% } %>
 
     <li><a href="/cart" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a></li>
     <li><a href="#" aria-label="Contact"><i class="fas fa-phone"></i></a></li>

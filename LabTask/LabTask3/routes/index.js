@@ -4,6 +4,7 @@ const Product = require('../models/Product');
 const Order = require('../models/Order');
 const User = require('../models/User');
 const isAuthenticated = require('../middleware/isAuthenticated');
+const isAdmin = require('../middleware/isAdmin');
 
 // 🏠 Homepage - show 6 products
 router.get('/', async (req, res) => {
@@ -55,7 +56,13 @@ router.post('/login', async (req, res) => {
       return res.send('Invalid email or password.');
     }
 
-    req.session.user = { name: user.name, email: user.email };
+    // ✅ Include isAdmin in session
+    req.session.user = {
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin || false
+    };
+
     req.session.message = 'Login successful!';
     res.redirect('/');
   } catch (err) {
@@ -83,10 +90,22 @@ router.post('/register', async (req, res) => {
       return res.send('Email already registered. Try logging in.');
     }
 
-    const newUser = new User({ name, email, password });
+    const newUser = new User({
+      name,
+      email,
+      password,
+      isAdmin: email === 'mmubbara@gmail.com' // ✅ Make admin based on email
+    });
+
     await newUser.save();
 
-    req.session.user = { name, email };
+    // ✅ Fix: use newUser, not undefined 'user'
+    req.session.user = {
+      name: newUser.name,
+      email: newUser.email,
+      isAdmin: newUser.isAdmin
+    };
+
     req.session.message = 'Registration successful!';
     res.redirect('/');
   } catch (err) {
@@ -200,6 +219,77 @@ router.get('/my-orders', isAuthenticated, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.send('Error fetching your orders.');
+  }
+});
+
+// 🛠️ Admin: View All Products
+router.get('/admin/products', isAdmin, async (req, res) => {
+  const products = await Product.find();
+  res.render('admin/products', { page: 'admin-products', products });
+});
+
+// 🛠️ Admin: View All Orders
+router.get('/admin/orders', isAdmin, async (req, res) => {
+  const orders = await Order.find().sort({ createdAt: -1 });
+  res.render('admin/orders', { page: 'admin-orders', orders });
+});
+
+// Show “Add Product” form
+router.get('/admin/products/add', isAdmin, (req, res) => {
+  res.render('admin/add-product', { page: 'admin-add-product' });
+});
+
+// Handle the form submission
+router.post('/admin/products/add', isAdmin, async (req, res) => {
+  const { name, price, category, image, description } = req.body;
+  try {
+    await Product.create({ name, price, category, image, description });
+    res.redirect('/admin/products');
+  } catch (err) {
+    console.error(err);
+    res.send('Failed to add product.');
+  }
+});
+
+// Show Edit Product Form
+router.get('/admin/products/edit/:id', isAdmin, async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.send('Product not found');
+    res.render('admin/edit-product', { page: 'admin-edit-product', product });
+  } catch (err) {
+    console.error(err);
+    res.send('Error loading product for editing');
+  }
+});
+// Handle Edit Product Form Submission
+router.post('/admin/products/edit/:id', isAdmin, async (req, res) => {
+  const { name, price, category, image, description } = req.body;
+
+  try {
+    await Product.findByIdAndUpdate(req.params.id, {
+      name,
+      price,
+      category,
+      image,
+      description
+    });
+
+    res.redirect('/admin/products');
+  } catch (err) {
+    console.error(err);
+    res.send('Failed to update product.');
+  }
+});
+
+// Delete Product
+router.post('/admin/products/delete/:id', isAdmin, async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.params.id);
+    res.redirect('/admin/products');
+  } catch (err) {
+    console.error(err);
+    res.send('Failed to delete product.');
   }
 });
 
