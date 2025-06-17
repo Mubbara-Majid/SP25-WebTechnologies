@@ -1,0 +1,172 @@
+<head>
+  <!-- Add to the head section -->
+<link rel="stylesheet" href="/css/checkout.css">
+</head>
+<div class="container">
+    <div class="checkout-header">
+        <div class="logo">SweatyBetty</div>
+        <div>Secure Checkout</div>
+    </div>
+
+    <form class="checkout-form" id="checkoutForm">
+        <h2>Customer Information</h2>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="fullName" class="required">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z ]+" title="Only alphabetic characters allowed">
+                <div class="error-message" id="fullNameError">Please enter a valid name (letters only)</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" title="10-15 digits required">
+                <div class="error-message" id="phoneError">Please enter a valid phone number (10-15 digits)</div>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="required">Address</label>
+                <input type="text" id="address" name="address" required>
+                <div class="error-message" id="addressError">Please enter your address</div>
+            </div>
+        </div>
+
+        <h2>Payment Information</h2>
+
+        <div class="form-group">
+            <label for="cardNumber" class="required">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" required pattern="[0-9]{16}" title="16-digit card number required" maxlength="16">
+            <div class="error-message" id="cardNumberError">Please enter a valid 16-digit card number</div>
+            <div class="card-icons">
+                <img src="/images/visa.jpg" alt="Visa" id="visaIcon">
+                <img src="/images/mastercard.jpg" alt="Mastercard" id="mastercardIcon">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group expiry-date">
+                <label for="expiryDate" class="required">Expiry Date</label>
+                <input type="month" id="expiryDate" name="expiryDate" required min="">
+                <div class="error-message" id="expiryDateError">Please enter a valid future date</div>
+            </div>
+
+            <div class="form-group cvv">
+                <label for="cvv" class="required">CVV</label>
+                <input type="text" id="cvv" name="cvv" required pattern="[0-9]{3}" title="3-digit CVV required" maxlength="3">
+                <div class="error-message" id="cvvError">Please enter a valid 3-digit CVV</div>
+            </div>
+        </div>
+
+        <div class="submit-btn">
+            <button type="submit">
+                <i class="fas fa-lock"></i> Complete Purchase
+            </button>
+            <div class="secure-checkout">
+                <i class="fas fa-shield-alt"></i>
+                <span>Your payment information is encrypted and secure</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const expiryDateInput = document.getElementById('expiryDate');
+        const today = new Date();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        expiryDateInput.min = `${year}-${month}`;
+
+        const cardNumberInput = document.getElementById('cardNumber');
+        const cardIcons = {
+            visa: document.getElementById('visaIcon'),
+            mastercard: document.getElementById('mastercardIcon')
+        };
+
+        cardNumberInput.addEventListener('input', function () {
+            const cardNumber = this.value;
+
+            Object.values(cardIcons).forEach(icon => icon.classList.remove('active'));
+
+            if (/^4/.test(cardNumber)) {
+                cardIcons.visa.classList.add('active');
+            } else if (/^5[1-5]/.test(cardNumber)) {
+                cardIcons.mastercard.classList.add('active');
+            }
+        });
+
+        const form = document.getElementById('checkoutForm');
+        const inputs = form.querySelectorAll('input[required]');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => validateField(input));
+            input.addEventListener('blur', () => validateField(input));
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!validateField(input)) isValid = false;
+            });
+
+            const expiryDate = new Date(expiryDateInput.value);
+            const currentDate = new Date();
+            currentDate.setHours(0, 0, 0, 0);
+
+            if (expiryDate < currentDate) {
+                showError(expiryDateInput, 'expiryDateError', 'Please enter a valid future date');
+                isValid = false;
+            } else {
+                hideError(expiryDateInput, 'expiryDateError');
+            }
+
+            if (isValid) {
+                alert('Order placed successfully! Thank you for your purchase.');
+                form.reset();
+                inputs.forEach(input => input.classList.remove('valid', 'invalid'));
+            }
+        });
+
+        function validateField(input) {
+            const errorId = input.id + 'Error';
+            if (input.validity.valid) {
+                hideError(input, errorId);
+                return true;
+            } else {
+                let message = input.validationMessage;
+                if (input.id === 'fullName') message = 'Please enter a valid name (letters only)';
+                else if (input.id === 'cardNumber') message = 'Please enter a valid 16-digit card number';
+                else if (input.id === 'cvv') message = 'Please enter a valid 3-digit CVV';
+                else if (input.id === 'phone') message = 'Please enter a valid phone number (10-15 digits)';
+
+                showError(input, errorId, message);
+                return false;
+            }
+        }
+
+        function showError(input, errorId, message) {
+            const errorElement = document.getElementById(errorId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            input.classList.add('invalid');
+            input.classList.remove('valid');
+        }
+
+        function hideError(input, errorId) {
+            const errorElement = document.getElementById(errorId);
+            errorElement.style.display = 'none';
+            input.classList.remove('invalid');
+            input.classList.add('valid');
+        }
+    });
+</script>

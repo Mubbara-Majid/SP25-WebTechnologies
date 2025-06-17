@@ -1,0 +1,12 @@
+<!-- views/layout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% var page = typeof page !== 'undefined' ? page : 'index'; %>
+    <%- include('partials/header') %>
+</head>
+<body>
+    <%- body %>
+    <%- include('partials/footer') %>
+</body>
+</html>
