@@ -1,0 +1,32 @@
+<h2 style="text-align:center; margin: 40px 0;">Your Cart</h2>
+
+<% if (cart.length === 0) { %>
+  <p style="text-align:center;">Your cart is empty.</p>
+<% } else { %>
+  <table style="margin: auto; width: 80%; border-collapse: collapse;">
+    <tr>
+      <th style="padding: 10px; border-bottom: 1px solid #ccc;">Product</th>
+      <th style="padding: 10px; border-bottom: 1px solid #ccc;">Price</th>
+      <th style="padding: 10px; border-bottom: 1px solid #ccc;">Quantity</th>
+      <th style="padding: 10px; border-bottom: 1px solid #ccc;">Subtotal</th>
+    </tr>
+    <% cart.forEach(item => { %>
+      <tr>
+        <td style="padding: 10px;"><%= item.product.name %></td>
+        <td style="padding: 10px;">$<%= item.product.price %></td>
+        <td style="padding: 10px;"><%= item.quantity %></td>
+        <td style="padding: 10px;">$<%= item.product.price * item.quantity %></td>
+      </tr>
+    <% }) %>
+    <tr>
+      <td colspan="3" style="text-align: right; font-weight: bold; padding: 10px;">Total:</td>
+      <td style="padding: 10px;"><strong>$<%= total %></strong></td>
+    </tr>
+  </table>
+
+  <div style="text-align:center; margin-top: 30px;">
+    <a href="/checkout">
+      <button style="padding: 10px 20px;">Proceed to Checkout</button>
+    </a>
+  </div>
+<% } %>
