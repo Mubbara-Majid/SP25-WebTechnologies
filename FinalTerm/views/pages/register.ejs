@@ -1,0 +1,24 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <h2>Create Account</h2>
+    <form action="/register" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="register-actions">
+      <a href="/login" class="action-link">Already have an account?</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.admin-complaints-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #fff;
+}
+
+.admin-complaints-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.complaint-card {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fafafa;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.complaint-card:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.complaint-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.complaint-card strong {
+  color: #111;
+}
+
+.status-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background-color: #ddd;
+  color: #333;
+  margin-top: 8px;
+}
+
+.complaint-card .timestamp {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+}

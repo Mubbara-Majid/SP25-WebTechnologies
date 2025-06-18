@@ -1,0 +1,10 @@
+<h2>My Complaints</h2>
+<ul>
+  <% complaints.forEach(c => { %>
+    <li>
+      <strong>Order:</strong> <%= c.orderId %><br>
+      <strong>Message:</strong> <%= c.message %><br>
+      <small><%= c.createdAt.toLocaleString() %></small>
+    </li><hr>
+  <% }) %>
+</ul>

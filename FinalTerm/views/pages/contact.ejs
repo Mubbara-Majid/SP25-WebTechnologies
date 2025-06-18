@@ -1,0 +1,13 @@
+<div class="contact-container">
+  <h2>Contact Us / Complaint Form</h2>
+
+  <form method="POST" action="/contact">
+    <label for="orderId">Order ID:</label>
+    <input type="text" name="orderId" id="orderId" value="<%= orderId || '' %>" required readonly>
+
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" placeholder="Write your complaint here..." required></textarea>
+
+    <button type="submit">Submit Complaint</button>
+  </form>
+</div>

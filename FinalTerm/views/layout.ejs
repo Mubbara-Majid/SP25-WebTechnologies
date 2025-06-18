@@ -1,0 +1,26 @@
+<!-- views/layout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% var page = typeof page !== 'undefined' ? page : 'index'; %>
+    <%- include('partials/header') %>
+</head>
+<body>
+  <% if (message) { %>
+  <div style="background: #d4edda; padding: 12px; text-align: center; color: green; font-weight: bold;">
+    <%= message %>
+  </div>
+<% } %>
+
+<% if (typeof session !== 'undefined' && session.message) { %>
+  <div style="background: #d4edda; padding: 10px; text-align: center; color: green; font-weight: bold;">
+    <%= session.message %>
+  </div>
+  <% session.message = null; %>
+<% } %>
+
+
+    <%- body %>
+    <%- include('partials/footer') %>
+</body>
+</html>

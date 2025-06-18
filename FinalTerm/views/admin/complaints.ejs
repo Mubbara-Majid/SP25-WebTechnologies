@@ -1,0 +1,16 @@
+<div class="admin-complaints-container">
+  <h2>User Complaints</h2>
+
+  <% if (complaints.length === 0) { %>
+    <p>No complaints submitted yet.</p>
+  <% } else { %>
+    <% complaints.forEach(c => { %>
+      <div class="complaint-card">
+        <p><strong>User:</strong> <%= c.userEmail %></p>
+        <p><strong>Order ID:</strong> <%= c.orderId %></p>
+        <p><strong>Message:</strong> <%= c.message %></p>
+        <p class="timestamp">🕒 <%= c.createdAt.toLocaleString() %></p>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
